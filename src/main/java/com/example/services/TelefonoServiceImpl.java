@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.TelefonoDao;
+import com.example.entities.Empleado;
 import com.example.entities.Telefono;
 
 @Service
@@ -36,5 +37,15 @@ private TelefonoDao telefonoDao;
     public void deleteById(int idTelefono) {
         telefonoDao.deleteById(idTelefono);
 
+    }
+
+    @Override
+    public long deleteByEmpleado(Empleado empleado) {
+        return telefonoDao.deleteByEmpleado(empleado);
+    }
+
+    @Override
+    public List<Telefono> findByEmpleado(Empleado empleado) {
+        return telefonoDao.findByEmpleado(empleado);
     }
 }

@@ -15,29 +15,27 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
-@Table(name= "departamentos")
+@Table(name = "departamentos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+public class Departamento implements Serializable {
 
-public class Departamento implements Serializable{
     private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     private String nombre;
 
-// creo la realacion de uno a muchos y para q sea bidireccional decimos quien posee la relacion de clave externa (mappedBy)
-    //maneja la relacion el campo facultad de la parte de muchos, de los estudiantes
-    @OneToMany(fetch = FetchType.LAZY,
-    cascade = CascadeType.PERSIST,mappedBy = "departamento")
+    // creo la realacion de uno a muchos y para q sea bidireccional decimos quien
+    // posee la relacion de clave externa (mappedBy)
+    // maneja la relacion el campo facultad de la parte de muchos, de los
+    // estudiantes
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "departamento")
     private List<Empleado> empleados;
-    
+
 }
-    
-
-
-

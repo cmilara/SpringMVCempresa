@@ -19,47 +19,37 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
-
 @Entity
-@Table (name= "empleados")
+@Table(name = "empleados")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-
 public class Empleado implements Serializable {
-private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-private int id;
-private String nombre;
-private String apellidos;
-private LocalDate fechaAlta;
-private Genero genero;
+    private String nombre;
+    private String apellidos;
+    private LocalDate fechaAlta;
+    private Genero genero;
 
-
-public enum Genero{
-    HOMBRE, MUJER, OTRO
+    public enum Genero {
+        HOMBRE, MUJER, OTRO
     }
 
     // Relacionar unos emplados a un departamento
-@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-//asi creo la relacion externa
-@JoinColumn (name = "idDepartamento")
+    // asi creo la relacion externa
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idDepartamento")
+    private Departamento departamento;
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "empleado")
+    private List<Telefono> telefonos;
 
-@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "empleado")
-
-private List <Telefono> telefonos;
-private List <Correo> correos;
-
-    
-
-
-    
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "empleado")
+    private List<Correo> correos;
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.dao.CorreoDao;
 import com.example.entities.Correo;
+import com.example.entities.Empleado;
 
 public class CorreoServiceImpl implements CorreoService {
 
@@ -31,6 +32,16 @@ public class CorreoServiceImpl implements CorreoService {
     @Override
     public void deleteById(int idCorreo) {
         correoDao.deleteById(idCorreo);
+    }
+
+    @Override
+    public long deleteByEmpleado(Empleado empleado) {
+        return correoDao.deleteByEmpleado(empleado);
+    }
+
+    @Override
+    public List<Correo> findByEmpleado(Empleado empleado) {
+        return correoDao.findByEmpleado(empleado);
     }
 
 }

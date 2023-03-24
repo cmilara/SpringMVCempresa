@@ -10,7 +10,7 @@
     <h1>Formulario de Alta/Modificación de Empleado</h1>
 
     <form th:object="${empleado}" th:action="@{/altaModificacionEmpleado}" method="post">
-        <!-- Guardar en un input oculto el id del empleado: -->
+        <!-- Guardar en un input oculto el id del estudiante: -->
         <input type="hidden" name="id" th:value="${empleado.id}">
 
         <label for="nombre">Nombre:</label>
@@ -35,25 +35,37 @@
             <label for="otro"> Otro</label>
             <input type="radio" id="otro" name="genero" value="OTRO" th:field="*{genero}" required>
         </fieldset>
-
         <label for="idDepartamento">Departamento: </label>
         <select name="departamento" id="idDepartamento" required>
             <option></option>
-            <option th:each="departamento : ${departmento}" th:value="${departamento.id}"
+            <option th:each="departamento : ${departamento}" th:value="${departamento.id}"
             th:text="${departamento.nombre}"
             th:selected="${empleado.departamento != null and departamento.id == empleado.departamento.id}"></option>
         </select>
         <label for="numerosTelefonos">Telefono(s): </label>
-        <!-- tiene q ser diferente de como se llama telefonos en clase estudiantes por eso ponemos numerosTelefonos -->
+        
         <input type="text" name="numerosTelefonos" id="numerosTelefonos" 
                 placeholder="Uno o varios separados por punto y coma "
                 th:value="${telefonos}">
-         <input type="text" name="correoscorreos" id="correoscorreos" 
+                <label for="correoscorreos">Correo(s): </label>
+     <input type="text" name="correoscorreos" id="correoscorreos" 
                 placeholder="Uno o varios separados por punto y coma "
-                th:value="${correos}">        
+                th:value="${correos}">          
         <input type="submit" value="Alta">
 
 
     </form>
+
+    <!-- Como funciona un formulario html -->
+    <!-- <form action="#" method="post"
+
+        <input name="nombre" placeholder="Escriba su nombre" type="text">
+
+        <label for id="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input name="fechaNacimiento" type="date" id="fechaNacimiento">
+        <input type="submit" value="Enviar">
+ -->
 </body>
 </html>
+
+

@@ -33,6 +33,11 @@ public class SpringMvCempresaApplication implements CommandLineRunner {
 	@Autowired
 	private CorreoService correoService;
 
+	public static void main(String[] args) {
+		SpringApplication.run(SpringMvCempresaApplication.class, args);
+	}
+
+
 	@Override
 	public void run(String... args) throws Exception {
 

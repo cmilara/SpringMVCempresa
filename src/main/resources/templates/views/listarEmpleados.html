@@ -31,7 +31,7 @@
             <td th:text="${empleado.genero}"></td>
             <td th:text="${empleado.departamento.nombre}"></td>
             <td>
-                <a th:href="@{/frmActualizar/}+${Empleado.id}">Actualizar</a>
+                <a th:href="@{/frmActualizar/}+${empleado.id}">Actualizar</a>
                 <a th:href="@{/borrar/}+${empleado.id}">Borrar</a>
                 <a th:href="@{/detalles/}+${empleado.id}">Detalles</a>
             </td>

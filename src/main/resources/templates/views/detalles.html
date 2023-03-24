@@ -7,11 +7,14 @@
 <title>Document</title>
 </head>
 <body>
-<h1 th:text="'Detalles del empleado ' + ${empleado.nombre} + ' ' + ${estudiante.apellidos}"></h1>
-<p>Telefonos y correos:</p>
+<h1 th:text="'Detalles del empleado ' + ${empleado.nombre} + ' ' + ${empleado.apellidos}"></h1>
+<p>Telefonos:</p>
 <ul>
 <li th:each="telefono : ${telefonos}" th:text="${telefono}"></li>
+<p>Correos</p>
+<ul>
 <li th:each="correo : ${correos}" th:text="${correo}"></li>
+</ul>
 </ul>
 </body>
 </html>

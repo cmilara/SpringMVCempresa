@@ -30,7 +30,6 @@ import com.example.services.TelefonoService;
 @Controller
 @RequestMapping("/")
 
-
 public class MainControllers {
 
     private static final Logger LOG = Logger.getLogger("MainController");
@@ -101,7 +100,6 @@ public class MainControllers {
         if (correosRecibidos != null) {
             String[] arrayCorreos = correosRecibidos.split(";");
 
-            
             listadoCorreos = Arrays.asList(arrayCorreos);
         }
         if (listadoCorreos != null) {
@@ -118,13 +116,13 @@ public class MainControllers {
         }
         return "redirect:/listar";
     }
-    //Método que borra empleados
+
+    // Método que borra empleados
     @GetMapping("/borrar/{id}")
-    public String borrarEmpleado(@PathVariable (name = "id") int idEmpleado){
-    empleadoService.deleteById(idEmpleado);
+    public String borrarEmpleado(@PathVariable(name = "id") int idEmpleado) {
+        empleadoService.deleteById(idEmpleado);
         return "redirect:/listar";
     }
-
 
     // Metodo que te da los detalles del empleado
     @GetMapping("/detalles/{id}")
@@ -145,8 +143,39 @@ public class MainControllers {
         model.addAttribute("correos", correosCorreos);
         model.addAttribute("empleado", empleado);
         return "views/detalles";
-
-//Método que actualiza empleados
-        
     }
+    // // // Actualizar
+    // @GetMapping("/frmActualizar/{id}")
+    // public String frmActualizaEmpleado(@PathVariable(name = "id") int idEmpleado,
+    //         Model model) {
+
+    //     Empleado empleado = empleadoService.findById(idEmpleado);
+
+    //     List<Telefono> TodosTelefonos = telefonoService.findAll();
+    //     List<Telefono> telefonosDelEmpleado = TodosTelefonos.stream()
+    //             .filter(telefono -> telefono.getEmpleado().getId() == idEmpleado)
+    //             .collect(Collectors.toList());
+        
+    //     String numerosDeTelefono = telefonosDelEmpleado.stream()
+    //             .map(telefono -> telefono.getNumero())
+    //             .collect(Collectors.joining(";"));
+
+    //             List<Correo> TodosCorreo = correoService.findAll();
+    //             List<Correo> correosDelEmpleado = TodosCorreo.stream()
+    //                     .filter(correo -> correo.getEmpleado().getId() == idEmpleado)
+    //                     .collect(Collectors.toList());
+                
+    //             String correoEmpleado = correosDelEmpleado.stream()
+    //                     .map(correo -> correo.getEmail())
+    //                     .collect(Collectors.joining(";"));
+
+    //     List <Departamento> departamentos = departamentoService.findAll();
+
+    //     model.addAttribute("empleado", empleado);
+    //     model.addAttribute("telefonos", numerosDeTelefono);
+    //     model.addAttribute("departamentos", departamentos);  
+    //     model.addAttribute("correos", correoEmpleado);      
+    //     return "views/formularioAltaEmpleado";
+
 }
+

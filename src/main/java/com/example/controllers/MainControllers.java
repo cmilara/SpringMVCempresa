@@ -145,5 +145,8 @@ public class MainControllers {
         model.addAttribute("correos", correosCorreos);
         model.addAttribute("empleado", empleado);
         return "views/detalles";
+
+//Método que actualiza empleados
+        
     }
 }

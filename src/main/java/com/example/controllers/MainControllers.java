@@ -75,7 +75,7 @@ public class MainControllers {
     @PostMapping("/altaModificacionEmpleado")
     public String altaEmpleado(@ModelAttribute Empleado empleado,
             @RequestParam("numerosTelefonos") String telefonosRecibidos,
-            @RequestParam("correos") String correosRecibidos) {
+            @RequestParam("listadoCorreos") String correosRecibidos) {
         LOG.info("telefonos recibidos: " + telefonosRecibidos);
         LOG.info("correos recibidos: " + correosRecibidos);
 
@@ -137,10 +137,10 @@ public class MainControllers {
         model.addAttribute("empleado", empleado);
 
         List<Correo> correos = correoService.findByEmpleado(empleado);
-        List<Object> correoscorreos = correos.stream()
-                .map(c -> c.getCorreo())
+        List<String> correosCorreos = correos.stream()
+                .map(c -> c.getEmail())
                 .toList();
-        model.addAttribute("correos", correoscorreos);
+        model.addAttribute("correos", correosCorreos);
         model.addAttribute("empleado", empleado);
         return "views/detalles";
     }

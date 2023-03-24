@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.TelefonoDao;
 import com.example.entities.Empleado;
@@ -28,20 +29,23 @@ private TelefonoDao telefonoDao;
     }
 
     @Override
+    @Transactional
     public void save(Telefono telefono) {
         telefonoDao.save(telefono);
 
     }
 
     @Override
+    @Transactional
     public void deleteById(int idTelefono) {
         telefonoDao.deleteById(idTelefono);
 
     }
 
     @Override
-    public long deleteByEmpleado(Empleado empleado) {
-        return telefonoDao.deleteByEmpleado(empleado);
+    @Transactional
+    public void deleteByEmpleado(Empleado empleado) {
+        telefonoDao.deleteByEmpleado(empleado);
     }
 
     @Override

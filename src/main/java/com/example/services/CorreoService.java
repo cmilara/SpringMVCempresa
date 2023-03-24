@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.entities.Correo;
 import com.example.entities.Empleado;
 
+
 public interface CorreoService {
 
         public List<Correo> findAll();
@@ -15,7 +16,7 @@ public interface CorreoService {
 
         public void deleteById(int idCorreo);
 
-        long deleteByEmpleado(Empleado empleado);
+       public void deleteByEmpleado(Empleado empleado);
 
         List<Correo> findByEmpleado(Empleado empleado);
 }

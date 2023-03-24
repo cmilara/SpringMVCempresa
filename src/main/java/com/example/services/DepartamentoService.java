@@ -15,4 +15,5 @@ public interface DepartamentoService {
     public void save(Departamento departamento);
 
     public void deleteById(int idDepartamento);
+
 }

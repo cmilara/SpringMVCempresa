@@ -18,5 +18,5 @@ public interface CorreoService {
 
        public void deleteByEmpleado(Empleado empleado);
 
-        List<Correo> findByEmpleado(Empleado empleado);
+       public List<Correo> findByEmpleado(Empleado empleado);
 }

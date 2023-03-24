@@ -30,7 +30,7 @@ public class Telefono implements Serializable {
 
         private String numero;
 
-        @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+        @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
         private Empleado empleado;
 
 }

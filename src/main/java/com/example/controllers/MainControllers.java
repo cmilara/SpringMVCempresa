@@ -100,6 +100,8 @@ public class MainControllers {
         List<String> listadoCorreos = null;
         if (correosRecibidos != null) {
             String[] arrayCorreos = correosRecibidos.split(";");
+
+            
             listadoCorreos = Arrays.asList(arrayCorreos);
         }
         if (listadoCorreos != null) {

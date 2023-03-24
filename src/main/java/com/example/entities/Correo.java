@@ -29,7 +29,7 @@ public class Correo implements Serializable {
 
         private String email;
 
-        @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+        @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
         private Empleado empleado;
 
 }
